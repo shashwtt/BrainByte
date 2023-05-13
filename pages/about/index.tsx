@@ -45,8 +45,21 @@ const About = () => {
 							offering personalized quizzes and comprehensive details on the
 							chosen topics.
 						</p>
-
-						<h2 className={styles.subtitle}>Our Mission</h2>
+						<hr />
+						<h2>Have an exam in a couple hours? We’ve got you covered</h2>
+						<p>
+							Artificial intelligence is becoming an increasingly important part
+							of our everyday existence, opening up countless digital
+							opportunities throughout society. From science to everyday
+							knowledge, from written text, to conceptual art. World-changing
+							digital innovations with human-like capabilities are everywhere,
+							so the risk of human-like flaws is ever present as well. Our
+							project BrainByte uses the OpenAi’s ChatGPT API to generate set of
+							10 unique questions to help you in your exams preparation. You can
+							choose from one of the commonly asked prompts or go for a
+							completely random topic. You’re the boss and you can ask anything.
+						</p>
+						<h2 className={styles.subtitle}>Our Mission & Inspiration</h2>
 						<p>
 							Our mission is to provide a platform for students to learn and
 							revise their knowledge in a fun and interactive way. We aim to
@@ -54,19 +67,48 @@ const About = () => {
 							offering them quizzes based on their interests and knowledge
 							level. We also aim to provide a platform for students to learn
 							about various topics in-depth by providing them with detailed
-							information about the topics they are interested in.
+							information about the topics they are interested in. BrainByte was
+							inspired by our belief that technology can enhance learning
+							experiences. There is a need for more accessible and interactive
+							ways to learn, especially with the current state of education,
+							which has been greatly impacted by the pandemic.
+						</p>
+
+						<h2 className={styles.subtitle}>Our Technology</h2>
+						<p>
+							BrainByte utilizes cutting-edge artificial intelligence techniques
+							to provide users with interactive quizzes and in-depth information
+							about various subjects. The project aims to enhance the learning
+							experience by offering personalized quizzes and comprehensive
+							details on the chosen topics. The project uses NextJs and OpenAI's
+							API primarily.
 						</p>
 
 						<h2 className={styles.subtitle}>Our Team</h2>
 						<div className={styles.team}>
 							<div className={styles.member}>
-								<h3>Abhishek</h3>
-								<p>Frontend Developer</p>
+								<Image
+									src="/images/shashwt.jpg"
+									alt="Shashwat Dubey"
+									width={200}
+									height={200}
+									priority
+									className={styles.image}
+									/>
+								<h3>Shashwat Dubey</h3>
+								<p>Full-Stack Development</p>
 							</div>
 							<div className={styles.member}>
-								<img src="/images/about/akshat.jpg" alt="Akshat" />
-								<h3>Akshat</h3>
-								<p>Backend Developer</p>
+								<Image
+									src="/images/aikagra.jpg"
+									alt="Aikagra Gupta"
+									width={200}
+									height={200}
+									className={styles.image}
+									priority
+								/>
+								<h3>Aikagra Gupta</h3>
+								<p>Content & Graphics</p>
 							</div>
 						</div>
 					</div>

@@ -94,9 +94,9 @@ const App = () => {
 				if (pogg) {
 					updateHTML(pogg[0]);
 					console.log(pogg[1]);
+					// generateQuiz(pogg[1]);
 					setValid(true);
 				}
-
 			} catch (error) {
 				console.error("Error:", error);
 			}
@@ -145,7 +145,7 @@ const App = () => {
 						scale: 0,
 						onComplete: () => {
 							inputBoxRef.current?.remove();
-						}
+						},
 					});
 					gsap.to(btnRef.current, {
 						duration: 0.4,
@@ -153,11 +153,50 @@ const App = () => {
 						scale: 0,
 						onComplete: () => {
 							btnRef.current?.remove();
-						}
+						},
 					});
-					
+					// gsap.to(styles.quiz, {
+					// 	display: "block",
+					// 	duration: 0.2,
+					// });
 				},
 			});
+		}
+	}
+
+	function generateQuiz(quizData: any) {
+		const quiz = quizData.questions;
+		const quizContainer = document.getElementById("quizContainer");
+		if (quizContainer) {
+			quizContainer.innerHTML = "";
+			for (let i = 0; i < quiz.length; i++) {
+				const question = quiz[i].question;
+				const options = quiz[i].options;
+				const correctAnswer = quiz[i].correctAnswer;
+
+				const questionElement = document.createElement("div");
+				questionElement.classList.add(styles.question);
+				questionElement.innerHTML = question;
+				quizContainer.appendChild(questionElement);
+
+				const optionsElement = document.createElement("div");
+				optionsElement.classList.add(styles.options);
+				for (let j = 0; j < options.length; j++) {
+					const option = options[j];
+					const optionElement = document.createElement("div");
+					optionElement.classList.add(styles.option);
+					optionElement.innerHTML = option;
+					optionElement.addEventListener("click", () => {
+						if (option === correctAnswer) {
+							optionElement.classList.add(styles.correct);
+						} else {
+							optionElement.classList.add(styles.incorrect);
+						}
+					});
+					optionsElement.appendChild(optionElement);
+				}
+				quizContainer.appendChild(optionsElement);
+			}
 		}
 	}
 
@@ -172,7 +211,7 @@ const App = () => {
 					<div className={styles.container}>
 						<div>
 							<div className={styles.intro} ref={introRef}>
-								<h2>What you want to learn about?</h2>
+								<h2>What do you want to learn about?</h2>
 								<p>
 									This is an AI powered platform made to teach students about
 									topics ranging from simple mathematics to the most advanced
@@ -204,6 +243,32 @@ const App = () => {
 									style={{ visibility: "hidden" }}
 								>
 									<span className={styles.loader}></span>loading
+								</div>
+							</div>
+							<div className={styles.quiz}>
+								<div className={styles.quizContent}>
+									<div className={styles.quizQuestion}>
+										<h3>Question 1</h3>
+										<p>What is the capital of India?</p>
+									</div>
+									<div className={styles.quizOptions}>
+										<div className={styles.quizOption}>
+											<input type="radio" name="option" id="option1" />
+											<label htmlFor="option1">New Delhi</label>
+										</div>
+										<div className={styles.quizOption}>
+											<input type="radio" name="option" id="option2" />
+											<label htmlFor="option2">Mumbai</label>
+										</div>
+										<div className={styles.quizOption}>
+											<input type="radio" name="option" id="option3" />
+											<label htmlFor="option3">Kolkata</label>
+										</div>
+										<div className={styles.quizOption}>
+											<input type="radio" name="option" id="option4" />
+											<label htmlFor="option4">Chennai</label>
+										</div>
+									</div>
 								</div>
 							</div>
 

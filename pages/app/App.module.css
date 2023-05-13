@@ -17,6 +17,7 @@
     font-family: 'Helvetica';
     position: relative;
     margin-top: -100px;
+    padding-top: 100px;
 }
 
 .main .intro h2 {
@@ -205,3 +206,92 @@
     aspect-ratio: 1 / 1;
     opacity: 0;
 }
+
+.main .quiz {
+    width: fit-content;
+    max-width: 900px;
+    font-family: 'Helvetica';
+    position: relative;
+    margin-top: 5em;
+    background-color: #b5dcd4;
+    border-radius: 5px;
+    padding: 1em;
+    transition: all 0.3s ease;
+    display: none;
+}
+
+.main .quiz .quizContent {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.main .quiz .quizContent .quizQuestion {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.main .quiz .quizContent .quizQuestion h3 {
+    font-size: 1.5em;
+    font-weight: 700;
+    color: #115149;
+    margin-top: .5em;
+}
+
+.main .quiz .quizContent .quizQuestion p {
+    font-size: 1.4em;
+    font-weight: 400;
+    color: #115149;
+    margin-bottom: 1em;
+}
+
+.main .quiz .quizContent .quizOptions {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.main .quiz .quizContent .quizOptions .quizOption {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-bottom: 0.5em;
+    background-color: #fff6;
+    padding: 1em;
+    border-radius: 5px;
+}
+
+.main .quiz .quizContent .quizOptions .quizOption input {
+    margin-right: 0.5em;
+}
+
+.main .quiz .quizContent .quizOptions .quizOption label {
+    font-size: 1.1em;
+    font-weight: 500;
+    color: #115149;
+    margin-left: .5em;
+}
+
+.main .quiz .quizContent .quizOptions .quizOption input[type="radio"] {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 2px solid #115149;
+    cursor: pointer;
+}
+
+.main .quiz .quizContent .quizOptions .quizOption input[type="radio"]:checked {
+    background-color: #115149;
+}
+
+
+
+
+

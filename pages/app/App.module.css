@@ -15,11 +15,19 @@
     width: 100%;
     max-width: 900px;
     font-family: 'Helvetica';
-    margin-top: 200px;
+    position: relative;
+    margin-top: -100px;
 }
 
 .main .intro h2 {
     font-size: 2.6em;
+    font-weight: 700;
+    color: #115149;
+    margin-bottom: 10px;
+}
+
+.main .intro h3 {
+    font-size: 2.2em;
     font-weight: 700;
     color: #115149;
     margin-bottom: 10px;
@@ -34,12 +42,23 @@
     color: #115149;
 }
 
+.main .intro::after {
+    content: "";
+    position: absolute;
+    width: 30%;
+    height: 3px;
+    background-color: #279083;
+    bottom: -20px;
+    left: 0;
+    opacity: 0.2;
+}
+
 .main .inputBox {
     width: 100%;
-    max-width: 900px;
-    background-color: rgba(85, 196, 170, 0.188);
+    max-width: 800px;
+    background-color: #CDE9E3;
     border: 2px solid rgb(85, 196, 170, 0.312);
-    height: 70px;
+    height: 60px;
     border-radius: 6px; 
     position: relative;
     padding: 0 20px;
@@ -47,12 +66,13 @@
     align-items: center;
     flex-direction: row;
     cursor: text;
+    margin-top: 5em;
 }
 
 .main .inputBox .before {
     font-size: 1.3em;
     color: #115149;
-    font-weight:  600;
+    font-weight:  500;
     height: 100%;
     display: flex;
     align-items: center;
@@ -68,22 +88,26 @@
     border: none;
     outline: none;
     padding-left: 7px;
-    font-weight:  500;
+    font-weight: 400;
     color: #115149;
     opacity: 0.8;
 }
 
+.main .inputBox .textArea:disabled {
+    user-select: none;
+}
+
 .main .inputBox .textArea::placeholder {
     color: #115149;
-    opacity: 0.5;
+    opacity: 0.6;
 }
 
 .main .proceed {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 200px;
-    height: 50px;
+    width: 150px;
+    height: 40px;
     border-radius: 6px;
     background-color: #3cb194c3;
     color: #fff;
@@ -93,6 +117,8 @@
     cursor: pointer;
     transition: all 0.3s ease;
     margin-top: 1em;
+    overflow: hidden;
+    position: relative;
 }
 
 
@@ -107,4 +133,75 @@
 
 .main .proceed:hover .arrow {
     transform: translateX(7px);
+}
+
+.main .proceed .loading {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #309179;
+}  
+
+.main .proceed .loader {
+    height: 45%;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    display: inline-block;
+    border-top: 3px solid #FFF;
+    border-right: 3px solid #fff;
+    border-bottom: 3px solid transparent;
+    box-sizing: border-box;
+    animation: rotation .8s ease-out infinite;
+    margin-right: 1em;
+  }
+  
+  @keyframes rotation {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  } 
+
+.main .container {
+    height: calc(100vh - var(--hh));
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    padding-top: var(--hh);
+}
+
+.main .container .lottiePanel {
+    width: calc(100% + 14em);
+    height: 100%;
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: -3em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.main .container .lottiePanel::before {
+    content: '';
+    height: 70%;
+    width: 400px;
+    margin-right: 100px;
+    background-color: rgba(51, 168, 168, 0.081);
+    border-radius: 4px;
+    opacity: .7;
+}
+
+.main .container .lottie {
+    width: 85%;
+    aspect-ratio: 1 / 1;
+    opacity: 0;
 }

@@ -15,7 +15,7 @@ export default async function handler(
   try {
     const completion = await openai.createCompletion({
       model: "text-davinci-003",
-      prompt: `explain the given prompt like i'm a toddler (max: 300 words, min: 100 words), give simple analogy for the same if applicable (important: wrap headings in <h3> tag and text in <p> tag). Next I want you to give me a json code for a 5 question quiz (with 4 options and correct answer, do not generate any titles for json) wrapped inside like this "••• {json code} ••• "
+      prompt: `explain the given prompt like i'm very dumb (max: 300 words, min: 100 words), use headings and paragraphs to display info (important: wrap headings in <h3> tag and text in <p> tag). Next I want you to give me a json code for a 5 question quiz (with 4 options and correct answer, do not generate any titles for json) wrapped inside like this "••• {json code} ••• "
 
       Topic —> ${text}
 

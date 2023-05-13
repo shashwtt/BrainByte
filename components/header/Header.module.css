@@ -73,6 +73,29 @@
     font-weight: 500;
     font-family: 'Helvetica';
     color: #1e987e;
+    cursor: pointer;
+    position: relative;
+}
+
+.org::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: -6px;
+    width: calc(100% + 2em);
+    height: 100%;
+    background-color: #98d29c;
+    border-radius: 4px;
+    transform-origin: center;
+    transition: 0.2s ease;
+    z-index: 0;
+    scale: 0.9 0.8;
+    opacity: 0;
+}
+
+.org:hover::after {
+    opacity: .3;
+    scale: 1;
 }
 
 .org h2 {

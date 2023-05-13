@@ -84,11 +84,11 @@
     left: -6px;
     width: calc(100% + 2em);
     height: 100%;
-    background-color: #98d29c;
+    background-color: #a5d5ce;
     border-radius: 4px;
     transform-origin: center;
     transition: 0.2s ease;
-    z-index: 0;
+    z-index: 4;
     scale: 0.9 0.8;
     opacity: 0;
 }

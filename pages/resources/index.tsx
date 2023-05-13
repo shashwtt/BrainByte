@@ -1,10 +1,8 @@
 /* eslint-disable react/no-unescaped-entities */
 import React from "react";
-import styles from "@/styles/Home.module.css";
+import styles from "./Resources.module.css";
 import { RemoveCurtain } from "@/components/curtain/Curtain";
 import Head from "next/head";
-import { useEffect, useRef, useState } from "react";
-import type { LottiePlayer } from "lottie-web";
 
 const About = () => {
 	React.useEffect(() => {

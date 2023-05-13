@@ -1,0 +1,110 @@
+.main {
+	display: flex;
+    background: var(--primary);
+    flex-direction: column;
+}
+
+.main .inner {
+	width: 100%;
+	max-width: 1920px;
+	padding: 0 10em;
+    margin: 0 auto;
+}
+
+.main .intro {
+    width: 100%;
+    max-width: 900px;
+    font-family: 'Helvetica';
+    margin-top: 200px;
+}
+
+.main .intro h2 {
+    font-size: 2.6em;
+    font-weight: 700;
+    color: #115149;
+    margin-bottom: 10px;
+}
+
+.main .intro p {
+    font-size: 1.45em;
+    line-height: 1.2;
+    opacity: 0.8;
+    margin-bottom: 30px;
+    font-weight: 400;
+    color: #115149;
+}
+
+.main .inputBox {
+    width: 100%;
+    max-width: 900px;
+    background-color: rgba(85, 196, 170, 0.188);
+    border: 2px solid rgb(85, 196, 170, 0.312);
+    height: 70px;
+    border-radius: 6px; 
+    position: relative;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    cursor: text;
+}
+
+.main .inputBox .before {
+    font-size: 1.3em;
+    color: #115149;
+    font-weight:  600;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    pointer-events: none;
+}
+
+.main .inputBox .textArea {
+    width: auto;
+    height: 100%;
+    font-size: 1.3em;
+    font-family: 'Helvetica';
+    background-color: transparent;
+    border: none;
+    outline: none;
+    padding-left: 7px;
+    font-weight:  500;
+    color: #115149;
+    opacity: 0.8;
+}
+
+.main .inputBox .textArea::placeholder {
+    color: #115149;
+    opacity: 0.5;
+}
+
+.main .proceed {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 200px;
+    height: 50px;
+    border-radius: 6px;
+    background-color: #3cb194c3;
+    color: #fff;
+    font-size: 1.2em;
+    font-family: 'Helvetica';
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 1em;
+}
+
+
+.main .proceed:hover {
+    background-color: #309179e3;
+}
+
+.main .proceed .arrow {
+    margin-left: 10px;
+    transition: all 0.3s ease;
+}
+
+.main .proceed:hover .arrow {
+    transform: translateX(7px);
+}

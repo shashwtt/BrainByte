@@ -33,6 +33,7 @@ const About = () => {
 
 			<main id="aboutPage" className={styles.main}>
 				<div className={styles.inner}>
+					
 				</div>
 			</main>
 		</>

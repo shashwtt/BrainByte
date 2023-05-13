@@ -1,32 +1,31 @@
-# Aqua Allies
+# MindMate — Mental Health Assist
 
-This is a GitHub repository dedicated to our submission for HPE CodeWars 2023  Hackathon - the 6th Sustainable Development Goal (SDG) - Clean Water and Sanitation. Here you can find resources, information, and code related to this project.
+MindMate is a web application that provides mental health support and resources. It incorporates sentiment analysis, a basic chatbot, and emotion detection to offer personalized assistance to users. The project aims to create a safe and inclusive space for individuals to seek guidance, information, and support for their mental well-being.
 
-You can find our website [here](https://aqua.shashwt.me/).
-## Project
+## Features
+- Sentiment Analysis: The application analyzes user input to determine the emotional state of the user.
+- Basic Chatbot: A chatbot feature provides automated responses and suggestions based on user queries.
+- Emotion Detection: The project utilizes pre-trained models to detect emotions in user input and tailor the responses accordingly.
 
-Our project [Aqua Allies](https://wotah.shashwt.me/) is a website that provides information about the 6th SDG goal and its importance. The website is designed to raise awareness about the need for clean water and sanitation and to encourage people to take action to achieve this goal.
+## Technologies Used
+- Next.js: Next.js is used as the framework for building the web application.
+- React: React is used for building the user interface components.
+- Node.js: Node.js is used for server-side logic and integration of AI models.
+- VADER (Valence Aware Dictionary and sEntiment Reasoner): A pre-trained sentiment analysis model is used for analyzing user sentiment.
+- Dialogflow: A natural language understanding platform is used for implementing the chatbot functionality.
+- Pre-trained Emotion Detection Model: A pre-trained model is fine-tuned to detect emotions in user input.
 
-we also encourage visitors to take action to support the 6th SDG goal. There are links to organizations working on water and sanitation issues, as well as resources for individuals who want to get involved and make a difference.
+## Getting Started
+To run the project locally, follow these steps:
 
-## HPE Hackathon hosted by Codingal
+1. Clone the repository: `git clone https://github.com/shashwtt/MindMate.git`
+2. Install dependencies: `npm install`
+3. Rename `.env.txt` to `.env.local` and fill the required environment variables.
+4. Start the development server: `npm run dev`
+5. Access the application at `http://localhost:3000`
 
-Hewlett Packard Enterprise (HPE) in partnership with Codingal, the #1 coding platform for kids brings you HPE CodeWars 2023 Hackathon.
+## Contributions and Feedback
+Contributions, issues, and feature requests are welcome. Feel free to open an issue or submit a pull request to contribute to this project. If you have any feedback or suggestions, please reach out to us.
 
-An online coding competition for grade 8-12 students to collaborate and innovate with the best minds.
-
-For more information about the hackathon and how to participate, please visit the [Codingal website](https://codingal.com/hackathon/hpe).
-
-## Credit
-
-[Shashwat Dubey](https://github.com/shashwtt) - Website, Content Writing, 
-[Aikagra Gupta](https://github.com/aikagra) - Showreel
-
-[Codingal Hackathon 2023](https://www.codingal.com/competitions/hpe-codewars-2023-hackathon/)
-<br>
-[water.org](https://water.org/)
-<br>
-[teamseas.org](https://teamseas.org/)
-<br>
-[thewaterproject.org](https://thewaterproject.org/donate)
-<br>
+## License
+This project is licensed under the MIT License.

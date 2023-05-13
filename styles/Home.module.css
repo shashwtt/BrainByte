@@ -1,0 +1,146 @@
+.main {
+	display: flex;
+	justify-content: center;
+    background: var(--primary);
+    flex-direction: column;
+    align-items: center;
+}
+
+.main .inner {
+	width: 100%;
+	max-width: 1920px;
+	padding: 0 6em;
+    margin: 0 auto;
+}
+
+.main .intro {
+    height: calc(100vh - var(--hh));
+    padding-left: 2em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+}
+
+.main .intro .main__title {
+    font-size: 1.5em;
+    max-width: 65%;
+    font-family: 'Helvetica';
+	line-height: 1.2;
+	margin-bottom: 20px;
+    color: #115149;
+}
+
+.main .intro .main__title span {
+    position: relative;
+}
+
+.main .intro .main__title span::after {
+    content: '';
+    position: absolute;
+    width: calc(100% + 15px);
+    height: calc(100% - 20px);
+    border-radius: 5px;
+    opacity: 0.3;
+    top: 9px;
+    left: -4px;
+    background-color: rgba(51, 176, 138, 0.486);
+    border: 2px solid rgba(41, 145, 114, 0.485);
+}
+
+.main .intro .main__desc {
+    font-size: 1.3em;
+    max-width: 700px;
+    font-family: 'sharlee';
+    line-height: 1.2;
+    opacity: 0.8;
+    margin-bottom: 20px;
+    color: #115149;
+}
+
+.main .intro .main__btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 200px;
+    height: 50px;
+    border-radius: 10px;
+    background-color: #41a88e;
+    color: #fff;
+    font-size: 1.2em;
+    font-family: 'Helvetica';
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: .5em;
+}
+
+.main .intro .main__btn:hover {
+    background-color: #2a8770;
+}
+
+.main .intro .main__btn .arrow {
+    margin-left: 10px;
+    transition: all 0.3s ease;
+}
+
+.main .intro .main__btn:hover .arrow {
+    transform: translateX(7px);
+}
+
+.main .intro .lottiePanel {
+    width: calc(100% + 4em);
+    height: 100%;
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.main .intro .lottiePanel::before,
+.main .intro .lottiePanel::after {
+    content: '';
+    height: 60%;
+    width: 700px;
+    background-color: rgba(51, 168, 168, 0.081);
+    border-radius: 4px;
+}
+
+.main .intro[intro-num='1'] .lottiePanel::after {
+    content: none;
+}
+
+.main .intro .lottie {
+    width: 45%;
+    aspect-ratio: 1 / 1;
+}
+
+.main .intro[intro-num='2'] {
+    height: calc(100vh - var(--hh));
+    padding-left: 0;
+    padding-right: 4em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    text-align: right;
+}
+
+
+.main .intro[intro-num='2'] .lottiePanel {
+    left: -4em;
+}
+
+.main .intro[intro-num='2'] .lottiePanel .lottie {
+    width: 35%;
+}
+
+.main .intro[intro-num='2'] .lottiePanel::after {
+    content: '';
+}
+.main .intro[intro-num='2'] .lottiePanel::before {
+    content: none;
+}

@@ -1,91 +1,98 @@
 .lane {
-    width: 100vw;
-    height: 40px;
-    z-index: 7;
+	width: 100vw;
+	height: 40px;
+	z-index: 7;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: relative;
 }
 
 .lane::after {
-    content: '';
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    background: #2ca294;
-    z-index: -1;
+	content: "";
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background: #2ca294;
+	z-index: -1;
 }
 
 .lane .inner {
-    width: 100%;
-    padding: 2em;
-    max-width: 1920px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    color: white;
-    font-family: 'sharlee';
-    font-size: 1.1em;
+	width: 100%;
+	padding: 2em;
+	max-width: 1920px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	color: white;
+	font-family: "sharlee";
+	font-size: 1.1em;
+}
+
+@media screen and (min-width: 1600px) {
+	.lane .inner {
+		justify-content: center;
+		gap: 1200px;
+	}
 }
 
 .lane .inner ul {
-    list-style: none;
-    display: flex;
-    align-items: center;
-    gap: 1em;
+	list-style: none;
+	display: flex;
+	align-items: center;
+	gap: 1em;
 }
 
 .lane .inner ul li {
-    font-weight: 300;
-    font-size: .9em;
-    font-family: 'sharlee';
-    position: relative;
-    padding-right: 1em;
+	font-weight: 300;
+	font-size: 0.9em;
+	font-family: "sharlee";
+	position: relative;
+	padding-right: 1em;
 }
 
 .lane .inner ul li::after {
-    content: '';
-    height: 0.8em;
-    border: .5px solid white;
-    position: absolute;
-    right: 0;
-    top: 0.1em;
+	content: "";
+	height: 0.8em;
+	border: 0.5px solid white;
+	position: absolute;
+	right: 0;
+	top: 0.1em;
 }
 .lane .inner ul li a {
-    position: relative;
+	position: relative;
 }
 
 .lane .inner ul li a::before {
-    content: '';
-    width: 100%;
-    height: 2px;
-    background-color: white;
-    border-radius: 5px;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    opacity: 0.6;
-    scale: 0 1;
-    transform-origin: center;
-    transition: scale 0.2s ease;
+	content: "";
+	width: 100%;
+	height: 2px;
+	background-color: white;
+	border-radius: 5px;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	opacity: 0.6;
+	scale: 0 1;
+	transform-origin: center;
+	transition: scale 0.2s ease;
 }
 
 .lane .inner ul li a:hover::before {
-    scale: 1 1;
-    opacity: .8;
+	scale: 1 1;
+	opacity: 0.8;
 }
 .lane .inner ul li a:hover {
-    opacity: 1;
+	opacity: 1;
 }
 
 .lane .inner ul li:last-child::after {
-    display: none;
+	display: none;
 }
 
 .proj {
-    font-weight: 600;
+	font-weight: 600;
 }

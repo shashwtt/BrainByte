@@ -33,7 +33,7 @@ export default function Header() {
 					</div>
 					<div className={styles.actionButton}>
 						<Pass href="/app">
-							<h3>Connect</h3>
+							<h3>Start Learning</h3>
 						</Pass>
 						<span className={styles.arrow}>→</span>
 					</div>

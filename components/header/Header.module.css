@@ -4,7 +4,6 @@
     width: 100vw;
     height: var(--hh);
     z-index: 50;
-    background-color: transparent;
     top: 0;
     
     color: var(--text);
@@ -17,23 +16,34 @@
     user-select: none;
 }
 
-.inner {
+.header .inner {
     display: flex;
     align-items: center;
     justify-content: space-between;
     width: 100%;
     height: 100%;
     max-width: 1920px;
+    position: relative;
 }
 
-.header::after {
+.header::before {
     content: "";
     position: absolute;
     bottom: 0;
-    left: 3em;
-    width: calc(100% - 6em);
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(var(--secondary), var(--primary));
+    transition: 0.2s ease-out;
+}
+
+.header .inner::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    width: calc(100%);
     height: 2px;
-    background-color: #98d29c;
+    background-color: #127469;
     border-radius: 4px;
     opacity: 0.2;
     transition: 0.2s ease-out;
@@ -48,8 +58,9 @@
 }
 
 .logo {
-    height: calc(var(--hh) - 2.2em);
+    height: calc(var(--hh) - 2.3em);
     width: auto;
+    scale: 1;
 }
 
 .org {
@@ -61,12 +72,15 @@
     gap: .5em;
     font-weight: 500;
     font-family: 'Helvetica';
-    scale: 1.1 1;
     color: #1e987e;
 }
 
 .org h2 {
-    font-size: 1.7em;
+    scale: 1;
+    font-size: 1.8em;
+    font-weight: 600;
+    scale: 1.05 1;
+    transform-origin: left;
 }
 
 
@@ -83,12 +97,13 @@
     display: flex;
     font-size: 1.1em;
     color: #127469;
-    font-weight: 500;
+    font-weight: 400;
 }
 
 .action .actionButton h3 {
     position: relative;
     font-family: 'Helvetica';
+    font-weight: 700;
 }
 
 .action .actionButton:hover {
@@ -98,10 +113,10 @@
 .action .actionButton h3::after {
     content: '';
     position: absolute;
-    bottom: 0;
+    bottom: 2px;
     left: 0;
     width: 100%;
-    height: 3px;
+    height: 2px;
     background-color: #98d29c;
     border-radius: 4px;
     scale: .7 0;

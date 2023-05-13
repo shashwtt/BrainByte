@@ -18,8 +18,6 @@ body {
 :root {
   --primary: #e9f2f0;
   --secondary: #E1F3F0;
-  --text: #5e6472; 
-  --text2: #8c8d8f; 
   --curtain: rgb(35, 35, 37);
   --hh: 5.5em;
 }

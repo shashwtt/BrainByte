@@ -1,0 +1,34 @@
+{
+  "name": "dino-hacks-2023",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@studio-freight/lenis": "^1.0.1",
+    "@types/node": "18.15.3",
+    "@types/react": "18.0.28",
+    "@types/react-dom": "18.0.11",
+    "@types/ua-parser-js": "^0.7.36",
+    "@u-wave/react-vimeo": "^0.9.10",
+    "@vimeo/player": "^2.18.0",
+    "eslint": "8.36.0",
+    "eslint-config-next": "13.2.4",
+    "gsap": "^3.11.5",
+    "next": "13.2.4",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-indiana-drag-scroll": "^3.0.3-alpha",
+    "react-transition-group": "^4.4.5",
+    "sass": "1.59.3",
+    "typescript": "4.9.5",
+    "ua-parser-js": "^1.0.35"
+  },
+  "devDependencies": {
+    "framer-motion": "^10.10.0"
+  }
+}

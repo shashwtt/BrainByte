@@ -1,0 +1,121 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  width: 100vw;
+  height: auto;
+  min-height: 100%;
+  overflow-x: hidden;
+  font-family: 'sharlee';
+  font-size: 14px !important;
+  user-select: none;
+  background: var(--secondary);
+  position: relative;
+}
+:root {
+  --primary: #b8f2e6;
+  --secondary: #E1F3F0;
+  --text: #5e6472; 
+  --text2: #8c8d8f; 
+  --curtain: rgb(35, 35, 37);
+  --hh: 6em;
+}
+
+#appWrapper {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+main {
+  width: 100vw;
+  max-width: 1920px;
+  min-height: 100vh; 
+  height: auto;
+  background: var(--secondary-gradient);
+  scroll-behavior: smooth;
+}
+
+#appWrapper {
+  position: relative;
+}
+
+main > * {
+  z-index: 5;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    font-weight: 600;
+}
+
+
+
+
+/*  <===== Miscelaneous =====>  */
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollBar {
+    width: 5px;
+    height: 100vh;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 15;
+    --scroll: 0%;
+}
+
+.scrollBar::after {
+    content: '';
+    position: absolute;
+    background-color: #5e6472;
+    background: linear-gradient(90deg, #41a88e 80% , var(--secondary) 80%);
+    top: 0;
+    right: 0;
+    width: 8px;
+    height: var(--scroll);
+    z-index: 2;
+    opacity: 0.7;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+@media screen and (max-width: 500px) {
+    .scrollBar {
+      display: none;
+    }
+}
+
+::selection {
+  opacity: 0.8;
+  background-color: rgba(9, 9, 9, 0.256);
+  border-radius: 20px;
+}
+
+@font-face {
+  font-family: 'sharlee';
+  src: url('/fonts/sharlee.woff2');
+}
+@font-face {
+    font-family: 'HK_wide';
+    src: url('/fonts/HK_wide.otf');
+}
+@font-face {
+    font-family: 'HK_boldenWide';
+    src: url('/fonts/HK_boldenWide.otf');
+}
+@font-face {
+    font-family: 'Helvetica';
+    src: url('/fonts/Helvetica.otf');
+}
+@font-face {
+    font-family: 'Lora';
+    src: url('/fonts/Lora.woff2');
+}

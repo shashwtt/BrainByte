@@ -74,7 +74,8 @@ const App = () => {
 		inputRef.current?.setAttribute("disabled", "true");
 		loadingRef.current?.style.setProperty("visibility", "visible");
 
-		const inputValue = inputRef.current?.value;
+		var inputValue = inputRef.current?.value;
+		if (inputValue == "") inputValue = prompt;
 		if (inputValue) {
 			try {
 				console.log("sending request!");

@@ -5,6 +5,7 @@ import { RemoveCurtain } from "@/components/curtain/Curtain";
 import Head from "next/head";
 import { useEffect, useRef, useState } from "react";
 import type { LottiePlayer } from "lottie-web";
+import Pass from "@/components/pass/Pass";
 
 const Home = () => {
 	const learnLottieRef = useRef<HTMLDivElement>(null);
@@ -46,7 +47,7 @@ const Home = () => {
 				autoplay: true,
 				path: "/assets/learning.json",
 			});
-      animation.setSpeed(0.8);
+			animation.setSpeed(0.8);
 
 			return () => animation.destroy();
 		}
@@ -65,7 +66,7 @@ const Home = () => {
 				autoplay: true,
 				path: "/assets/quiz.json",
 			});
-      animation.setSpeed(0.7);
+			animation.setSpeed(0.7);
 			return () => animation.destroy();
 		}
 	}, [quizLottie]);
@@ -95,11 +96,12 @@ const Home = () => {
 								journey.
 							</p>
 						</div>
-
-						<div className={styles.main__btn}>
-							<a href="/app">Get Started</a>
-							<span className={styles.arrow}>→</span>
-						</div>
+						<Pass href="/app">
+							<div className={styles.main__btn}>
+								Get Started
+								<span className={styles.arrow}>→</span>
+							</div>
+						</Pass>
 
 						<div className={styles.lottiePanel}>
 							<div ref={learnLottieRef} className={styles.lottie}></div>
@@ -122,11 +124,12 @@ const Home = () => {
 								related to the topic so you can practice on the go!
 							</p>
 						</div>
-
-						<div className={styles.main__btn}>
-							<a href="/app">Try It Yourself</a>
-							<span className={styles.arrow}>→</span>
-						</div>
+						<Pass href="/app">
+							<div className={styles.main__btn}>
+								Try It Yourself
+								<span className={styles.arrow}>→</span>
+							</div>
+						</Pass>
 						<div className={styles.lottiePanel}>
 							<div ref={quizLottieRef} className={styles.lottie}></div>
 						</div>

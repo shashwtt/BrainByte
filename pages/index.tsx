@@ -6,7 +6,7 @@ import Head from "next/head";
 import { useEffect, useRef, useState } from "react";
 import type { LottiePlayer } from "lottie-web";
 
-const Goals = () => {
+const Home = () => {
 	const learnLottieRef = useRef<HTMLDivElement>(null);
 	const [learnLottie, setLearnLottie] = useState<LottiePlayer | null>(null);
 
@@ -73,7 +73,7 @@ const Goals = () => {
 	return (
 		<>
 			<Head>
-				<title>BrainByte — Goals</title>
+				<title>BrainByte — Learn with AI</title>
 			</Head>
 
 			<main id="homePage" className={styles.main}>
@@ -137,4 +137,4 @@ const Goals = () => {
 	);
 };
 
-export default Goals;
+export default Home;

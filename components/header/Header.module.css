@@ -77,17 +77,25 @@
 
 
 .action .actionButton {
-    font-size: 1.2em;
-    font-weight: 500;
     cursor: pointer;
     transition: 0.2s ease-out;
-    color: #127469;
     opacity: 0.8;
-    font-family: 'Helvetica';
-    position: relative;
+    display: flex;
+    font-size: 1.1em;
+    color: #127469;
+    font-weight: 500;
 }
 
-.action .actionButton::after {
+.action .actionButton h3 {
+    position: relative;
+    font-family: 'Helvetica';
+}
+
+.action .actionButton:hover {
+    opacity: .9;
+}
+
+.action .actionButton h3::after {
     content: '';
     position: absolute;
     bottom: 0;
@@ -101,21 +109,25 @@
     transition: 0.2s ease-out;
 }
 
-.action .actionButton:hover::after {
+.action .actionButton:hover h3::after {
     scale: 1 1;
 }
 
-.action .actionButton span {
+.action .actionButton .arrow {
     display: inline-block;
     transition: 0.2s ease-out;
     margin: 0 0.2em 0 0.4em;
     line-height: 1;
     transform: translateY(1px);
     pointer-events: none;
+    font-size: 1.1em;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
     font-family: 'sharlee';
 }
 
-.action .actionButton:hover span {
+.action .actionButton:hover .arrow {
     transform: translate(5px, 1px);
 }
 

@@ -21,15 +21,21 @@ export default function Header() {
 					</div>
 				</Pass>
 				<div className={styles.action}>
-					<div className={styles.actionButton} btn-action="player">
-            About
+					<div className={styles.actionButton}>
+						<Pass href="/about">
+							<h3>About</h3>
+						</Pass>
 					</div>
-					<div className={styles.actionButton} btn-action="player">
-						Resources
+					<div className={styles.actionButton}>
+						<Pass href="/resources">
+							<h3>Resources</h3>
+						</Pass>
 					</div>
-					<div className={styles.actionButton} btn-action="player">
-						Connect
-						<span>→</span>
+					<div className={styles.actionButton}>
+						<Pass href="/app">
+							<h3>Connect</h3>
+						</Pass>
+						<span className={styles.arrow}>→</span>
 					</div>
 				</div>
 			</div>

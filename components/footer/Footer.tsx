@@ -6,13 +6,13 @@ export default function Footer() {
       <div className={styles.lane}>
         <div className={styles.inner}>
           <>
-            <p className={styles.proj}>©️ {new Date().getFullYear()} DinoHacks</p>
+            <p className={styles.proj}>©️ {new Date().getFullYear()} MindMate</p>
           </>
           <>
             <ul>
               <li>
                 <a
-                  href="http://github.com/shashwtt/DinoHacks-2023"
+                  href="http://github.com/shashwtt/MindMate"
                   target="_blank"
                   rel="noopener noreferrer"
                 >

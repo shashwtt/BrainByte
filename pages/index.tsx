@@ -97,7 +97,7 @@ const Goals = () => {
 						</div>
 
 						<div className={styles.main__btn}>
-							<a href="/signup">Get Started</a>
+							<a href="/app">Get Started</a>
 							<span className={styles.arrow}>→</span>
 						</div>
 
@@ -124,7 +124,7 @@ const Goals = () => {
 						</div>
 
 						<div className={styles.main__btn}>
-							<a href="/signup">Try It Yourself</a>
+							<a href="/app">Try It Yourself</a>
 							<span className={styles.arrow}>→</span>
 						</div>
 						<div className={styles.lottiePanel}>

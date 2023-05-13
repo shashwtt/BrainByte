@@ -9,11 +9,11 @@ body {
   height: auto;
   min-height: 100%;
   overflow-x: hidden;
-  font-family: 'sharlee';
   font-size: 14px !important;
   user-select: none;
   background: var(--secondary);
   position: relative;
+  font-family: 'Helvetica';
 }
 :root {
   --primary: #e9f2f0;
@@ -99,18 +99,6 @@ a {
 }
 
 @font-face {
-  font-family: 'sharlee';
-  src: url('/fonts/sharlee.woff2');
-}
-@font-face {
-    font-family: 'HK_wide';
-    src: url('/fonts/HK_wide.otf');
-}
-@font-face {
     font-family: 'Helvetica';
     src: url('/fonts/Helvetica.woff2');
-}
-@font-face {
-    font-family: 'Lora';
-    src: url('/fonts/Lora.woff2');
 }

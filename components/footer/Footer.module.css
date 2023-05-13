@@ -28,7 +28,7 @@
 	align-items: center;
 	justify-content: space-between;
 	color: white;
-	font-family: "sharlee";
+	font-family: "Helvetica";
 	font-size: 1.1em;
 }
 
@@ -49,7 +49,7 @@
 .lane .inner ul li {
 	font-weight: 300;
 	font-size: 0.9em;
-	font-family: "sharlee";
+	font-family: "Helvetica";
 	position: relative;
 	padding-right: 1em;
 }

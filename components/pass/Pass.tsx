@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 import { ThrowCurtain } from "@/components/curtain/Curtain";
 
-const passOrder = ["/", "/goals", "/contribute"]
+const passOrder = ["/", "/resources", "/app"]
 
 const CustomLink = (prop: { href: any; children: any }) => {
   const router = useRouter();

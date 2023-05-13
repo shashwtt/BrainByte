@@ -22,8 +22,8 @@ export default function Header() {
 				</Pass>
 				<div className={styles.action}>
 					<div className={styles.actionButton}>
-						<Pass href="/about">
-							<h3>About</h3>
+						<Pass href="/">
+							<h3>Home</h3>
 						</Pass>
 					</div>
 					<div className={styles.actionButton}>

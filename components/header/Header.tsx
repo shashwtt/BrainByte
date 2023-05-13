@@ -17,7 +17,7 @@ export default function Header() {
 							priority
 							className={styles.logo}
 						/>
-						<h2>MindMate</h2>
+						<h2>BrainByte</h2>
 					</div>
 				</Pass>
 				<div className={styles.action}>

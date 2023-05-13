@@ -28,7 +28,7 @@ const Goals = () => {
     <>
 
       <Head>
-        <title>DinoHacks — Goals</title>
+        <title>BrainByte — Goals</title>
       </Head>
 
       <main id="homePage">

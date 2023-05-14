@@ -6,7 +6,6 @@ import { RemoveCurtain } from "@/components/curtain/Curtain";
 import Head from "next/head";
 import { gsap } from "gsap";
 import { Quiz } from "@/components/quiz/Quiz";
-import ReactDOM from "react-dom";
 
 const App = () => {
 	const inputRef = React.useRef<HTMLInputElement>(null);
@@ -114,7 +113,7 @@ const App = () => {
 			try {
 				console.log("sending request!");
 				setValid(false);
-				const response = await fetch("/api/generate", {
+				const response = await fetch("/api/fetch", {
 					method: "POST",
 					headers: {
 						"Content-Type": "application/json",
@@ -127,7 +126,7 @@ const App = () => {
 				setValid(true);
 				var pog = processPrompt(data.result);
 				updateHTML(pog.cleanedHTML);
-				generateQuiz(pog.quiz);
+				setQuizData(pog.quiz);
 			} catch (error) {
 				console.error("Error:", error);
 			}
@@ -177,15 +176,7 @@ const App = () => {
 		}
 	}
 
-	const quizContainerRef = useRef<HTMLDivElement>(null);
-	function generateQuiz(quizData: any) {
-		const container = quizContainerRef.current;
-		if (container) {
-			ReactDOM.render( <Quiz quizObject={quizData} />, container);
-		}
-	}
-
-	const quizData = [
+	const [myquizData, setQuizData] = useState( [
 		{
 		  ques: "What is the Big Bang Theory?",
 		  ans: "An explanation for how the universe began",
@@ -216,9 +207,11 @@ const App = () => {
 			"Light speed travel",
 		  ],
 		},
-	  ];
+	  ]);
 	  
-	//   generateQuiz(quizData);
+	  useEffect(() => {
+		setQuizData([]);
+	  }, []);
 
 	return (
 		<>
@@ -266,7 +259,9 @@ const App = () => {
 								</div>
 							</div>
 						</div>
-						<div ref={quizContainerRef} className={styles.qC}></div>
+						<div className={styles.qC}>
+							<Quiz quizObject={myquizData} />
+						</div>
 					</div>
 				</div>
 			</main>

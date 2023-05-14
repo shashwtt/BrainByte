@@ -12,8 +12,15 @@ interface Question {
 }
 
 export function Quiz(props: QuizProps) {
+    const [display, setDisplay] = useState("flex");
 	useEffect(() => {
 		const quizData = props.quizObject;
+        if (!quizData || quizData.length === 0) {
+            setDisplay("none");
+            return;
+        } else {
+            setDisplay("flex");
+        }
 		const quizContent = quizData.map((question, index) => (
 			<div className={styles.quizContent} key={index}>
 				<div className={styles.quizQuestion}>
@@ -22,7 +29,6 @@ export function Quiz(props: QuizProps) {
 				</div>
 				<div className={styles.quizOptions}>
 					{question.options.map((option, optionIndex) => {
-						const optionKey = `option${index}-${optionIndex}`;
 						const isOptionSelected = selectedAnswers[index] === optionIndex;
 						const isOptionCorrect = isOptionSelected && option === question.ans;
 						const optionClass = isOptionCorrect
@@ -35,15 +41,10 @@ export function Quiz(props: QuizProps) {
 							<div
 								className={`${styles.quizOption} ${optionClass}`}
 								key={optionIndex}
+                                onClick={() => handleOptionChange(index, optionIndex)}
 							>
-								<input
-									type="radio"
-									name={`option${index}`}
-									id={optionKey}
-									checked={isOptionSelected}
-									onChange={() => handleOptionChange(index, optionIndex)}
-								/>
-								<label htmlFor={optionKey}>{option}</label>
+                                <div className={styles.optNum}>{optionIndex + 1}</div>
+								<h3>{option}</h3>
 							</div>
 						);
 					})}
@@ -82,7 +83,7 @@ export function Quiz(props: QuizProps) {
 	};
 
 	return (
-		<div className={styles.quiz}>
+		<div className={styles.quiz} style={{display: display}}>
 			{quizContent}
 			<div className={styles.endPanel}>
 				<button onClick={handleSubmit} className={styles.btn}>

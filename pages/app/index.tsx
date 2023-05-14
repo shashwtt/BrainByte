@@ -212,7 +212,7 @@ const App = () => {
 	]);
 
 	useEffect(() => {
-		setQuizData([]);
+		setQuizData(myquizData);
 	}, []);
 
 	return (

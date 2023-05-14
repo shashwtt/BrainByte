@@ -69,6 +69,36 @@ const App = () => {
 		};
 	}, []);
 
+	function processPrompt(prompt: string): { cleanedHTML: string; quiz: any[] } {
+		try {
+			const jsonStartIndex = prompt.indexOf("~~~");
+			const jsonEndIndex = prompt.lastIndexOf("~~~");
+
+			const cleanedHTML =
+				prompt.substring(0, jsonStartIndex) + prompt.substring(jsonEndIndex + 3);
+
+			const jsonCode = prompt.substring(jsonStartIndex + 3, jsonEndIndex);
+			const quiz = JSON.parse(jsonCode);
+
+			return {
+				cleanedHTML: cleanedHTML.trim(),
+				quiz: quiz.quiz,
+			};
+		} catch (e) {
+			console.log(e);
+			return {
+				cleanedHTML: `
+				<p> <b> Something went wrong: </b><br />We couldn't generate a quiz for this text. This may be an error with the OpenAI's API or because of a faulty prompt. Please try again. </p>
+				<p><b> Here are some random quotes instead: </b>
+				<br /> "The best way to predict the future is to create it." — Abraham Lincoln 
+				<br /> "There is nothing permanent except change." — Heraclitus 
+				<br /> "The only way to do great work is to love what you do." — Steve Jobs </p><br /> 
+				`,
+				quiz: [],
+			};
+		}
+	}
+
 	const handleProceed = async () => {
 		if (!valid) return;
 		inputRef.current?.setAttribute("disabled", "true");
@@ -90,29 +120,15 @@ const App = () => {
 				const data = await response.json();
 				inputRef.current?.removeAttribute("disabled");
 				loadingRef.current?.style.setProperty("visibility", "hidden");
-				handleData(data);
 				setValid(true);
+				var pog = processPrompt(data.result);
+				console.log(pog.quiz);
+				updateHTML(pog.cleanedHTML);
 			} catch (error) {
 				console.error("Error:", error);
 			}
 		}
 	};
-
-	function handleData(data: any) {
-		const response = data.result;
-
-		const jsonRegex = /~~~([^•]+)~~~/;
-		const matches = response.match(jsonRegex);
-
-		if (matches && matches.length > 1) {
-			const jsonString = matches[1];
-			const jsonObject = JSON.parse(jsonString);
-			const cleanedHtml = response.replace(matches[0], "");
-			updateHTML(cleanedHtml);
-			console.log(jsonObject);
-			return;
-		}
-	}
 
 	const introRef = useRef<HTMLDivElement>(null);
 	const inputBoxRef = useRef<HTMLDivElement>(null);

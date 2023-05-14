@@ -16,7 +16,7 @@ export default async function handler(
     const completion = await openai.createCompletion({
       model: "text-davinci-003",
       prompt: `1) Explain the given topic in brief for a kid to understand (important: Make use of <h3> and <p> tags, and within 200 words). 
-	  2) Next step, Generate a json quiz of 5 questions (important: make sure it has 4 options & answer). Wrap json code within three tilde symbols:  ~~~  ~~~
+	  2) Next step, Generate a json quiz of some questions (important: make sure it has 4 options & answer). Wrap json code (example: {"quiz": [{"ques": "", "ans": "", "options": []}]} ) within three tilde symbols:  ~~~  ~~~
 	  
 	  Topic — ${text}`,
       temperature: 0.7,

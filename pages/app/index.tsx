@@ -5,6 +5,8 @@ import styles from "./App.module.css";
 import { RemoveCurtain } from "@/components/curtain/Curtain";
 import Head from "next/head";
 import { gsap } from "gsap";
+import { Quiz } from "@/components/quiz/Quiz";
+import ReactDOM from "react-dom";
 
 const App = () => {
 	const inputRef = React.useRef<HTMLInputElement>(null);
@@ -75,7 +77,8 @@ const App = () => {
 			const jsonEndIndex = prompt.lastIndexOf("~~~");
 
 			const cleanedHTML =
-				prompt.substring(0, jsonStartIndex) + prompt.substring(jsonEndIndex + 3);
+				prompt.substring(0, jsonStartIndex) +
+				prompt.substring(jsonEndIndex + 3);
 
 			const jsonCode = prompt.substring(jsonStartIndex + 3, jsonEndIndex);
 			const quiz = JSON.parse(jsonCode);
@@ -86,6 +89,7 @@ const App = () => {
 			};
 		} catch (e) {
 			console.log(e);
+			console.log(prompt);
 			return {
 				cleanedHTML: `
 				<p> <b> Something went wrong: </b><br />We couldn't generate a quiz for this text. This may be an error with the OpenAI's API or because of a faulty prompt. Please try again. </p>
@@ -122,8 +126,8 @@ const App = () => {
 				loadingRef.current?.style.setProperty("visibility", "hidden");
 				setValid(true);
 				var pog = processPrompt(data.result);
-				console.log(pog.quiz);
 				updateHTML(pog.cleanedHTML);
+				generateQuiz(pog.quiz);
 			} catch (error) {
 				console.error("Error:", error);
 			}
@@ -168,50 +172,53 @@ const App = () => {
 							btnRef.current?.remove();
 						},
 					});
-					// gsap.to(styles.quiz, {
-					// 	display: "block",
-					// 	duration: 0.2,
-					// });
 				},
 			});
 		}
 	}
 
+	const quizContainerRef = useRef<HTMLDivElement>(null);
 	function generateQuiz(quizData: any) {
-		const quiz = quizData.questions;
-		const quizContainer = document.getElementById("quizContainer");
-		if (quizContainer) {
-			quizContainer.innerHTML = "";
-			for (let i = 0; i < quiz.length; i++) {
-				const question = quiz[i].question;
-				const options = quiz[i].options;
-				const correctAnswer = quiz[i].correctAnswer;
-
-				const questionElement = document.createElement("div");
-				questionElement.classList.add(styles.question);
-				questionElement.innerHTML = question;
-				quizContainer.appendChild(questionElement);
-
-				const optionsElement = document.createElement("div");
-				optionsElement.classList.add(styles.options);
-				for (let j = 0; j < options.length; j++) {
-					const option = options[j];
-					const optionElement = document.createElement("div");
-					optionElement.classList.add(styles.option);
-					optionElement.innerHTML = option;
-					optionElement.addEventListener("click", () => {
-						if (option === correctAnswer) {
-							optionElement.classList.add(styles.correct);
-						} else {
-							optionElement.classList.add(styles.incorrect);
-						}
-					});
-					optionsElement.appendChild(optionElement);
-				}
-				quizContainer.appendChild(optionsElement);
-			}
+		const container = quizContainerRef.current;
+		if (container) {
+			ReactDOM.render( <Quiz quizObject={quizData} />, container);
 		}
 	}
+
+	const quizData = [
+		{
+		  ques: "What is the Big Bang Theory?",
+		  ans: "An explanation for how the universe began",
+		  options: [
+			"A new TV show",
+			"A type of particle",
+			"An ancient language",
+			"An explanation for how the universe began",
+		  ],
+		},
+		{
+		  ques: "How did scientists come up with this theory?",
+		  ans: "They used evidence from observations of outer space",
+		  options: [
+			"They studied ancient texts",
+			"They conducted experiments",
+			"They used computer simulations",
+			"They used evidence from observations of outer space",
+		  ],
+		},
+		{
+		  ques: "What else has been discovered about the Big Bang Theory?",
+		  ans: "Dark matter and dark energy and cosmic inflation",
+		  options: [
+			"Black holes",
+			"Gravity waves",
+			"Dark matter and dark energy and cosmic inflation",
+			"Light speed travel",
+		  ],
+		},
+	  ];
+	  
+	//   generateQuiz(quizData);
 
 	return (
 		<>
@@ -258,37 +265,8 @@ const App = () => {
 									<span className={styles.loader}></span>loading
 								</div>
 							</div>
-							<div className={styles.quiz}>
-								<div className={styles.quizContent}>
-									<div className={styles.quizQuestion}>
-										<h3>Question 1</h3>
-										<p>What is the capital of India?</p>
-									</div>
-									<div className={styles.quizOptions}>
-										<div className={styles.quizOption}>
-											<input type="radio" name="option" id="option1" />
-											<label htmlFor="option1">New Delhi</label>
-										</div>
-										<div className={styles.quizOption}>
-											<input type="radio" name="option" id="option2" />
-											<label htmlFor="option2">Mumbai</label>
-										</div>
-										<div className={styles.quizOption}>
-											<input type="radio" name="option" id="option3" />
-											<label htmlFor="option3">Kolkata</label>
-										</div>
-										<div className={styles.quizOption}>
-											<input type="radio" name="option" id="option4" />
-											<label htmlFor="option4">Chennai</label>
-										</div>
-									</div>
-								</div>
-							</div>
-
-							<div className={styles.lottiePanel}>
-								<div className={styles.lottie}></div>
-							</div>
 						</div>
+						<div ref={quizContainerRef} className={styles.qC}></div>
 					</div>
 				</div>
 			</main>

@@ -117,15 +117,18 @@ const App = () => {
 				setValid(false);
 
 				// Add a timeout promise to handle the timeout error
-				const timeoutPromise = new Promise((resolve, reject) => {
+				const timeoutPromise = new Promise<Response>((resolve, reject) => {
 					setTimeout(() => {
 						reject(new Error("Request timed out"));
 					}, 60000); // 60 seconds
 				});
 
-				// Use Promise.race to race the fetch request with the timeout promise
 				const response = await Promise.race([
-					fetch(`http://brainbyte.shashwt.me/api/fetch?text=${encodeURIComponent(inputValue)}`),
+					fetch(
+						`http://brainbyte.shashwt.me/api/fetch?text=${encodeURIComponent(
+							inputValue
+						)}`
+					),
 					timeoutPromise,
 				]);
 

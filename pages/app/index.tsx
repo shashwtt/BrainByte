@@ -70,22 +70,24 @@ const App = () => {
 		};
 	}, []);
 
-	function processPrompt(prompt: string): { cleanedHTML: string; quiz: any[] } {
+	function processPrompt(prompt: any) {
 		try {
-			const jsonStartIndex = prompt.indexOf("~~~");
-			const jsonEndIndex = prompt.lastIndexOf("~~~");
+			if (prompt) {
+				const jsonStartIndex = prompt.indexOf("~~~");
+				const jsonEndIndex = prompt.lastIndexOf("~~~");
 
-			const cleanedHTML =
-				prompt.substring(0, jsonStartIndex) +
-				prompt.substring(jsonEndIndex + 3);
+				const cleanedHTML =
+					prompt.substring(0, jsonStartIndex) +
+					prompt.substring(jsonEndIndex + 3);
 
-			const jsonCode = prompt.substring(jsonStartIndex + 3, jsonEndIndex);
-			const quiz = JSON.parse(jsonCode);
+				const jsonCode = prompt.substring(jsonStartIndex + 3, jsonEndIndex);
+				const quiz = JSON.parse(jsonCode);
 
-			return {
-				cleanedHTML: cleanedHTML.trim(),
-				quiz: quiz.quiz,
-			};
+				return {
+					cleanedHTML: cleanedHTML.trim(),
+					quiz: quiz.quiz,
+				};
+			}
 		} catch (e) {
 			console.log(e);
 			console.log(prompt);
@@ -113,15 +115,19 @@ const App = () => {
 			try {
 				console.log("sending request!");
 				setValid(false);
-				const response = await fetch(`/api/fetch?text=${encodeURIComponent(inputValue)}`);
+				const response = await fetch(
+					`/api/fetch?text=${encodeURIComponent(inputValue)}`
+				);
 				const data = await response.json();
 				inputRef.current?.removeAttribute("disabled");
 				loadingRef.current?.style.setProperty("visibility", "hidden");
 				setValid(true);
 				console.log(data.result);
 				var pog = processPrompt(data.result);
-				updateHTML(pog.cleanedHTML);
-				setQuizData(pog.quiz);
+				if (pog) {
+					updateHTML(pog.cleanedHTML);
+					setQuizData(pog.quiz);
+				}
 			} catch (error) {
 				console.error("Error:", error);
 			}
@@ -171,42 +177,42 @@ const App = () => {
 		}
 	}
 
-	const [myquizData, setQuizData] = useState( [
+	const [myquizData, setQuizData] = useState([
 		{
-		  ques: "What is the Big Bang Theory?",
-		  ans: "An explanation for how the universe began",
-		  options: [
-			"A new TV show",
-			"A type of particle",
-			"An ancient language",
-			"An explanation for how the universe began",
-		  ],
+			ques: "What is the Big Bang Theory?",
+			ans: "An explanation for how the universe began",
+			options: [
+				"A new TV show",
+				"A type of particle",
+				"An ancient language",
+				"An explanation for how the universe began",
+			],
 		},
 		{
-		  ques: "How did scientists come up with this theory?",
-		  ans: "They used evidence from observations of outer space",
-		  options: [
-			"They studied ancient texts",
-			"They conducted experiments",
-			"They used computer simulations",
-			"They used evidence from observations of outer space",
-		  ],
+			ques: "How did scientists come up with this theory?",
+			ans: "They used evidence from observations of outer space",
+			options: [
+				"They studied ancient texts",
+				"They conducted experiments",
+				"They used computer simulations",
+				"They used evidence from observations of outer space",
+			],
 		},
 		{
-		  ques: "What else has been discovered about the Big Bang Theory?",
-		  ans: "Dark matter and dark energy and cosmic inflation",
-		  options: [
-			"Black holes",
-			"Gravity waves",
-			"Dark matter and dark energy and cosmic inflation",
-			"Light speed travel",
-		  ],
+			ques: "What else has been discovered about the Big Bang Theory?",
+			ans: "Dark matter and dark energy and cosmic inflation",
+			options: [
+				"Black holes",
+				"Gravity waves",
+				"Dark matter and dark energy and cosmic inflation",
+				"Light speed travel",
+			],
 		},
-	  ]);
-	  
-	  useEffect(() => {
+	]);
+
+	useEffect(() => {
 		setQuizData([]);
-	  }, []);
+	}, []);
 
 	return (
 		<>

@@ -125,7 +125,7 @@ const App = () => {
 
 				const response = await Promise.race([
 					fetch(
-						`http://brainbyte.shashwt.me/api/fetch?text=${encodeURIComponent(
+						`https://brainbyte.shashwt.me/api/fetch?text=${encodeURIComponent(
 							inputValue
 						)}`
 					),

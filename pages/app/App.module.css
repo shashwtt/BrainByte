@@ -30,6 +30,7 @@
     font-weight: 700;
     color: #115149;
     margin-bottom: 10px;
+    font-family: 'Helvetica';
 }
 
 .main .intro p {
@@ -39,6 +40,7 @@
     margin-bottom: 30px;
     font-weight: 400;
     color: #115149;
+    font-family: 'Helvetica';
 }
 
 .main .intro::after {

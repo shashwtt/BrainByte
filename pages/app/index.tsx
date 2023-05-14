@@ -116,7 +116,7 @@ const App = () => {
 				console.log("sending request!");
 				setValid(false);
 				const response = await fetch(
-					`/api/fetch?text=${encodeURIComponent(inputValue)}`
+					"/api/fetch?text=" + encodeURIComponent(inputValue)
 				);
 
 				const data = await response.json();

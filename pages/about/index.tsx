@@ -112,7 +112,7 @@ const About = () => {
 							</div>
 							<div className={styles.member}>
 								<Image
-									src="/images/noname.jpg"
+									src="/images/anuj.jpg"
 									alt="Anuj Rai"
 									width={200}
 									height={200}

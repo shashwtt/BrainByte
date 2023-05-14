@@ -22,7 +22,7 @@ BrainByte is an AI-powered education website that generates quizzes based on use
 
 To run the project locally, follow these steps:
 
-1. Clone the repository: `git clone https://github.com/your-username/quiz-genius.git`
+1. Clone the repository: `git clone https://github.com/shashwtt/BrainBye.git`
 2. Install dependencies: `npm install`
 3. Rename `.env.txt` to `.env.local` and fill the required environment variables.
 4. Start the development server: `npm run dev`

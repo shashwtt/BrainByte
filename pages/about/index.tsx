@@ -110,18 +110,6 @@ const About = () => {
 								<h3>Aikagra Gupta</h3>
 								<p>Content & Graphics</p>
 							</div>
-							<div className={styles.member}>
-								<Image
-									src="/images/anuj.jpg"
-									alt="Anuj Rai"
-									width={200}
-									height={200}
-									className={styles.image}
-									priority
-								/>
-								<h3>Anuj Rai</h3>
-								<p>Design</p>
-							</div>
 						</div>
 					</div>
 				</div>

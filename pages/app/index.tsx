@@ -118,6 +118,7 @@ const App = () => {
 				inputRef.current?.removeAttribute("disabled");
 				loadingRef.current?.style.setProperty("visibility", "hidden");
 				setValid(true);
+				console.log(data.result);
 				var pog = processPrompt(data.result);
 				updateHTML(pog.cleanedHTML);
 				setQuizData(pog.quiz);

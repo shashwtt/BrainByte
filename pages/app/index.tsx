@@ -125,10 +125,9 @@ const App = () => {
 				inputRef.current?.removeAttribute("disabled");
 				loadingRef.current?.style.setProperty("visibility", "hidden");
 				setValid(true);
-				// var pog = processPrompt(data.result);
-				// updateHTML(pog.cleanedHTML);
-				// generateQuiz(pog.quiz);
-				alert(data.result);
+				var pog = processPrompt(data.result);
+				updateHTML(pog.cleanedHTML);
+				generateQuiz(pog.quiz);
 			} catch (error) {
 				console.error("Error:", error);
 			}

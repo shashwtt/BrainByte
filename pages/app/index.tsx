@@ -90,13 +90,8 @@ const App = () => {
 				const data = await response.json();
 				inputRef.current?.removeAttribute("disabled");
 				loadingRef.current?.style.setProperty("visibility", "hidden");
-				var pogg = handleData(data);
-				if (pogg) {
-					updateHTML(pogg[0]);
-					console.log(pogg[1]);
-					// generateQuiz(pogg[1]);
-					setValid(true);
-				}
+				handleData(data);
+				setValid(true);
 			} catch (error) {
 				console.error("Error:", error);
 			}
@@ -106,14 +101,16 @@ const App = () => {
 	function handleData(data: any) {
 		const response = data.result;
 
-		const jsonRegex = /•••([^•]+)•••/;
+		const jsonRegex = /~~~([^•]+)~~~/;
 		const matches = response.match(jsonRegex);
 
 		if (matches && matches.length > 1) {
 			const jsonString = matches[1];
 			const jsonObject = JSON.parse(jsonString);
 			const cleanedHtml = response.replace(matches[0], "");
-			return [cleanedHtml, jsonObject];
+			updateHTML(cleanedHtml);
+			console.log(jsonObject);
+			return;
 		}
 	}
 

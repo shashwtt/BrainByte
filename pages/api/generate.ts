@@ -19,7 +19,9 @@ export default async function handler(
 
 	  Topic —> ${text}
 
-      `,
+      •••
+	  {json code here}
+	  •••`,
       temperature: 0.7,
       top_p: 1,
       frequency_penalty: 0,

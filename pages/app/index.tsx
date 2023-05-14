@@ -113,13 +113,7 @@ const App = () => {
 			try {
 				console.log("sending request!");
 				setValid(false);
-				const response = await fetch("/api/fetch", {
-					method: "POST",
-					headers: {
-						"Content-Type": "application/json",
-					},
-					body: JSON.stringify({ text: inputValue }),
-				});
+				const response = await fetch(`/api/fetch?text=${encodeURIComponent(inputValue)}`);
 				const data = await response.json();
 				inputRef.current?.removeAttribute("disabled");
 				loadingRef.current?.style.setProperty("visibility", "hidden");

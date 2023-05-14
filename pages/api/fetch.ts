@@ -10,15 +10,15 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
-  const { text } = req.body;
+  const { text } = req.query;
 
   try {
     const completion = await openai.createCompletion({
       model: "text-davinci-003",
       prompt: `1) Explain the given topic in brief for a kid to understand (important: Make use of <h3> and <p> tags, and within 200 words). 
-	  2) Next step, Generate a json quiz of some questions (important: make sure it has 4 options & answer). Wrap json code (example: {"quiz": [{"ques": "", "ans": "", "options": []}]} ) within three tilde symbols:  ~~~  ~~~
-	  
-	  Topic — "${text}"`,
+      2) Next step, Generate a json quiz of some questions (important: make sure it has 4 options & answer). Wrap json code (example: {"quiz": [{"ques": "", "ans": "", "options": []}]} ) within three tilde symbols:  ~~~  ~~~
+      
+      Topic — "${text}"`,
       temperature: 0.7,
       top_p: 1,
       frequency_penalty: 0.5,
@@ -27,6 +27,7 @@ export default async function handler(
     });
 
     const generatedText = completion.data.choices[0].text;
+    console.log(generatedText);
     res.status(200).json({ result: generatedText });
   } catch (error) {
     console.error("Error:", error);

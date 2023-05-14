@@ -115,18 +115,31 @@ const App = () => {
 			try {
 				console.log("sending request!");
 				setValid(false);
-				const response = await fetch(
-					`/api/fetch?text=${encodeURIComponent(inputValue)}`
-				);
-				const data = await response.json();
-				inputRef.current?.removeAttribute("disabled");
-				loadingRef.current?.style.setProperty("visibility", "hidden");
-				setValid(true);
-				console.log(data.result);
-				var pog = processPrompt(data.result);
-				if (pog) {
-					updateHTML(pog.cleanedHTML);
-					setQuizData(pog.quiz);
+
+				// Add a timeout promise to handle the timeout error
+				const timeoutPromise = new Promise((resolve, reject) => {
+					setTimeout(() => {
+						reject(new Error("Request timed out"));
+					}, 60000); // 60 seconds
+				});
+
+				// Use Promise.race to race the fetch request with the timeout promise
+				const response = await Promise.race([
+					fetch(`http://brainbyte.shashwt.me/api/fetch?text=${encodeURIComponent(inputValue)}`),
+					timeoutPromise,
+				]);
+
+				if (response) {
+					const data = await response.json();
+					inputRef.current?.removeAttribute("disabled");
+					loadingRef.current?.style.setProperty("visibility", "hidden");
+					setValid(true);
+					console.log(data.result);
+					var pog = processPrompt(data.result);
+					if (pog) {
+						updateHTML(pog.cleanedHTML);
+						setQuizData(pog.quiz);
+					}
 				}
 			} catch (error) {
 				console.error("Error:", error);

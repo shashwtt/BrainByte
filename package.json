@@ -16,6 +16,7 @@
     "@types/ua-parser-js": "^0.7.36",
     "@u-wave/react-vimeo": "^0.9.10",
     "@vimeo/player": "^2.18.0",
+    "cors": "^2.8.5",
     "eslint": "8.36.0",
     "eslint-config-next": "13.2.4",
     "gsap": "^3.11.5",
